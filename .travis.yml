@@ -1,0 +1,18 @@
+sudo: required
+addons:
+  chrome: stable
+
+language: node_js
+node_js:
+ #version is read from .nvmrc file
+branches:
+  only:
+    - master
+before_script:
+  - npm install -g @nestjs/cli
+
+script:
+  - npm run lint
+  - npm run test
+  - npm run prebuild
+  - npm run build
